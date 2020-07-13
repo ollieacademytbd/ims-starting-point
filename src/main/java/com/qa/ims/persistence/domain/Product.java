@@ -1,22 +1,22 @@
 package com.qa.ims.persistence.domain;
 
 public class Product {
-	private Integer product_id;
+	private Long product_id;
 	private String product_name;
 	private Double price;
 
-	public Product(int product_id, String product_name, double price) {
+	public Product(long product_id, String product_name, double price) {
 		// super();
 		this.product_id = product_id;
 		this.product_name = product_name;
 		this.price = price;
 	}
 
-	public int getProduct_id() {
+	public long getProduct_id() {
 		return product_id;
 	}
 
-	public void setProduct_id(int product_id) {
+	public void setProduct_id(long product_id) {
 		this.product_id = product_id;
 	}
 
@@ -37,7 +37,7 @@ public class Product {
 	}
 
 	public String toString() {
-		return "Product ID:" + product_id + " Product Name:" + product_name + " Price:" + price;
+		return "Product ID: " + product_id + " \n Product Name: " + product_name + " \n Price: " + price;
 	}
 
 	@Override

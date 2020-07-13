@@ -48,7 +48,8 @@ public class Order {
 	}
 
 	public String toString() {
-		return "OrderID:" + order_id + " CustomerID:" + customer_id + " ProductID:" + product_id + " Total:" + total;
+		return "OrderID: " + order_id + " \n CustomerID: " + customer_id + " \n ProductID: " + product_id
+				+ " \n Total: " + total;
 
 	}
 

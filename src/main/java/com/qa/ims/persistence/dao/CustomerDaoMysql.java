@@ -36,7 +36,7 @@ public class CustomerDaoMysql implements Dao<Customer> {
 	Customer customerFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = resultSet.getLong("id");
 		String firstName = resultSet.getString("first_name");
-		String surname = resultSet.getString("surname");
+		String surname = resultSet.getString("lastName");
 		return new Customer(id, firstName, surname);
 	}
 
@@ -85,7 +85,7 @@ public class CustomerDaoMysql implements Dao<Customer> {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
 			statement.executeUpdate("insert into customers(first_name, surname) values('" + customer.getFirstName()
-					+ "','" + customer.getSurname() + "')");
+					+ "','" + customer.getlastName() + "')");
 			return readLatest();
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
