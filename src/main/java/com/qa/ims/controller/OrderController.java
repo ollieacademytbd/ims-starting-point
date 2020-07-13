@@ -5,22 +5,26 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.qa.ims.persistence.domain.Customer;
+import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.services.CrudServices;
 import com.qa.ims.utils.Utils;
 
-/**
- * Takes in customer details for CRUD functionality
- *
- */
-public class CustomerController implements CrudController<Customer> {
+public class OrderController implements CrudController<Order> {
 
-	public static final Logger LOGGER = Logger.getLogger(CustomerController.class);
 
-	private CrudServices<Customer> customerService;
 
-	public CustomerController(CrudServices<Customer> customerService) {
-		this.customerService = customerService;
-	}
+	/**
+	 * Takes in customer details for CRUD functionality
+	 *
+	 */
+
+		public static final Logger LOGGER = Logger.getLogger(OrderController.class);
+
+	private CrudServices<Order> orderService;
+
+	public OrderController(CrudServices<Order> orderService) {
+			this.orderService = orderService;
+		}
 
 	String getInput() {
 		return Utils.getInput();
@@ -30,24 +34,24 @@ public class CustomerController implements CrudController<Customer> {
 	 * Reads all customers to the logger
 	 */
 	@Override
-	public List<Customer> readAll() {
-		List<Customer> customers = customerService.readAll();
-		for (Customer customer : customers) {
-			LOGGER.info(customer.toString());
+	public List<Order> readAll() {
+		List<Order> order = orderService.readAll();
+		for (Order order1 : order) {
+			LOGGER.info(order1.toString());
 		}
-		return customers;
+		return order;
 	}
 
 	/**
 	 * Creates a customer by taking in user input
 	 */
 	@Override
-	public Customer create() {
-		LOGGER.info("Please enter a first name");
-		String firstName = getInput();
-		LOGGER.info("Please enter a Last Name");
-		String lastName = getInput();
-		Customer customer = customerService.create(new Customer(firstName, lastName));
+	public Order create() {
+		LOGGER.info("Please enter a Customer ID: ");
+		Long customerID = getInput();
+		LOGGER.info("Please enter a Product ID: ");
+		String surname = getInput();
+		Customer customer = customerService.create(new Customer(firstName, surname));
 		LOGGER.info("Customer created");
 		return customer;
 	}
@@ -61,9 +65,9 @@ public class CustomerController implements CrudController<Customer> {
 		Long id = Long.valueOf(getInput());
 		LOGGER.info("Please enter a first name");
 		String firstName = getInput();
-		LOGGER.info("Please enter a Last Name");
-		String lastName = getInput();
-		Customer customer = customerService.update(new Customer(id, firstName, lastName));
+		LOGGER.info("Please enter a surname");
+		String surname = getInput();
+		Customer customer = customerService.update(new Customer(id, firstName, surname));
 		LOGGER.info("Customer Updated");
 		return customer;
 	}
@@ -77,5 +81,7 @@ public class CustomerController implements CrudController<Customer> {
 		Long id = Long.valueOf(getInput());
 		customerService.delete(id);
 	}
+
+}
 
 }
