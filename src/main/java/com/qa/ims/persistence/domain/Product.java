@@ -1,12 +1,12 @@
 package com.qa.ims.persistence.domain;
 
 public class Product {
-	private int product_id;
+	private Integer product_id;
 	private String product_name;
-	private double price;
+	private Double price;
 
 	public Product(int product_id, String product_name, double price) {
-		super();
+		// super();
 		this.product_id = product_id;
 		this.product_name = product_name;
 		this.price = price;
@@ -45,7 +45,7 @@ public class Product {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((product_name == null) ? 0 : product_name.hashCode());
-		result = prime * result + ((product_id == null) ? 0 : profuct_id.hashCode());
+		result = prime * result + ((product_id == null) ? 0 : product_id.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		return result;
 	}
@@ -75,4 +75,5 @@ public class Product {
 		} else if (!price.equals(other.price))
 			return false;
 		return true;
+	}
 }
