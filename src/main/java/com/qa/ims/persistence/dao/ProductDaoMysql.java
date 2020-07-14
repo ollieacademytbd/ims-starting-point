@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.persistence.domain.Product;
 import com.qa.ims.utils.Utils;
 
@@ -143,6 +144,12 @@ public class ProductDaoMysql implements Dao<Product> {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());
 		}
+	}
+
+	@Override
+	public Customer delete(Customer customer) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

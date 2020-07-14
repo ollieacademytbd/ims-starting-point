@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.services.CrudServices;
 import com.qa.ims.utils.Utils;
@@ -46,8 +45,6 @@ public class OrderController implements CrudController<Order> {
 	@Override
 	public Order create() {
 
-		Long customer = null;
-
 		LOGGER.info("Please enter the Customer ID correpsonding to who is making the order: ");
 		Integer customerID1 = Integer.valueOf(getInput());
 
@@ -56,9 +53,6 @@ public class OrderController implements CrudController<Order> {
 
 		LOGGER.info("How many products would you like to purchase?");
 		Integer quantity = Integer.valueOf(getInput());
-
-		LOGGER.info("");
-		String surname = getInput();
 
 		Order order = orderService.create(new Order(customerID1, product_id, quantity));
 		LOGGER.info("Order created ");
@@ -70,20 +64,14 @@ public class OrderController implements CrudController<Order> {
 	 */
 	@Override
 	public Order update() {
-		LOGGER.info("Please enter the id of the customer you would like to update");
-		Long id = Long.valueOf(getInput());
+		LOGGER.info("Please enter the id of the order you would like to update: ");
+		Integer order_id = Integer.valueOf(getInput());
 
-		LOGGER.info("Please enter a first name");
-		String firstName = getInput();
+		LOGGER.info("Please enter the new total of the order: ");
+		Double total = Double.valueOf(getInput());
 
-		LOGGER.info("Please enter a surname");
-		String surname = getInput();
-
-		LOGGER.info("Please enter a surname");
-		String surname = getInput();
-
-		Customer customer = customerService.update(new Customer(id, firstName, surname));
-		LOGGER.info("Customer Updated");
+		Order order = orderService.update(new Order(order_id, total));
+		LOGGER.info("Order Updated");
 		return order;
 	}
 

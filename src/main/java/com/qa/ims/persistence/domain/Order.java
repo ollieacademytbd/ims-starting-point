@@ -63,6 +63,15 @@ public class Order {
 		this.quantity = quantity;
 	}
 
+	public Order(Integer order_id, Double total) {
+		// TODO Auto-generated constructor stub
+
+		super();
+		this.order_id = order_id;
+		this.total = total;
+
+	}
+
 	public String toString() {
 		return "OrderID: " + order_id + " \n CustomerID: " + customer_id + " \n ProductID: " + product_id
 				+ " \n Total: " + total;
