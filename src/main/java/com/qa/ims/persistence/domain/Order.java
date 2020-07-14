@@ -13,7 +13,7 @@ public class Order {
 		this.order_id = order_id;
 		this.customer_id = customer_id;
 		this.product_id = product_id;
-		this.setQuantity(quantity);
+		this.quantity = quantity;
 		this.total = total;
 	}
 
@@ -54,6 +54,13 @@ public class Order {
 		this.customer_id = customer_id;
 		this.product_id = product_id;
 		this.total = total;
+	}
+
+	public Order(Integer customer_id, Integer product_id, Integer quantity) {
+		super();
+		this.customer_id = customer_id;
+		this.product_id = product_id;
+		this.quantity = quantity;
 	}
 
 	public String toString() {

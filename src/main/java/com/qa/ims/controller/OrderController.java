@@ -11,20 +11,18 @@ import com.qa.ims.utils.Utils;
 
 public class OrderController implements CrudController<Order> {
 
-
-
 	/**
 	 * Takes in customer details for CRUD functionality
 	 *
 	 */
 
-		public static final Logger LOGGER = Logger.getLogger(OrderController.class);
+	public static final Logger LOGGER = Logger.getLogger(OrderController.class);
 
 	private CrudServices<Order> orderService;
 
 	public OrderController(CrudServices<Order> orderService) {
-			this.orderService = orderService;
-		}
+		this.orderService = orderService;
+	}
 
 	String getInput() {
 		return Utils.getInput();
@@ -47,23 +45,22 @@ public class OrderController implements CrudController<Order> {
 	 */
 	@Override
 	public Order create() {
-		
-		
-		Long customerID = null;
-		
+
+		Long customer = null;
+
 		LOGGER.info("Please enter the Customer ID correpsonding to who is making the order: ");
-		customerID = Long.valueOf(getInput());
-		
-		
+		Integer customerID1 = Integer.valueOf(getInput());
+
 		LOGGER.info("What is the ID of the product you wish to purchase?");
-		String product_id = getInput();
-		
-		LOGGER.info("How how many products would you like to purchase?");
-		Long quantity = Long.valueOf(getInput());
-		
-		
-		
-		Order order = orderService.create(new Order(customerID, product_id, quantity));
+		Integer product_id = Integer.valueOf(getInput());
+
+		LOGGER.info("How many products would you like to purchase?");
+		Integer quantity = Integer.valueOf(getInput());
+
+		LOGGER.info("");
+		String surname = getInput();
+
+		Order order = orderService.create(new Order(customerID1, product_id, quantity));
 		LOGGER.info("Order created ");
 		return order;
 	}
@@ -75,13 +72,19 @@ public class OrderController implements CrudController<Order> {
 	public Order update() {
 		LOGGER.info("Please enter the id of the customer you would like to update");
 		Long id = Long.valueOf(getInput());
+
 		LOGGER.info("Please enter a first name");
 		String firstName = getInput();
+
 		LOGGER.info("Please enter a surname");
 		String surname = getInput();
+
+		LOGGER.info("Please enter a surname");
+		String surname = getInput();
+
 		Customer customer = customerService.update(new Customer(id, firstName, surname));
 		LOGGER.info("Customer Updated");
-		return customer;
+		return order;
 	}
 
 	/**
@@ -94,7 +97,5 @@ public class OrderController implements CrudController<Order> {
 		orderService.delete(order_id);
 		LOGGER.info("Order deleted");
 	}
-
-}
 
 }
