@@ -47,12 +47,14 @@ public class ProductController implements CrudController<Product> {
 		 */
 		@Override
 		public Product create() {
-			LOGGER.info("Please enter a first name");
-			String firstName = getInput();
-			LOGGER.info("Please enter a Last Name");
-			String lastName = getInput();
-			Customer product = customerService.create(new Product(firstName, lastName));
-			LOGGER.info("Customer created");
+			LOGGER.info("Please enter a product name: ");
+			String name = getInput();
+			
+			LOGGER.info("Please enter a price for this product: ");
+			Double price = Double.valueOf(getInput());
+			
+			Product product = productService.create(new Product(name, price));
+			LOGGER.info("Product created");
 			return product;
 		}
 
@@ -61,14 +63,17 @@ public class ProductController implements CrudController<Product> {
 		 */
 		@Override
 		public Product update() {
-			LOGGER.info("Please enter the id of the customer you would like to update");
+			LOGGER.info("Please enter the id of the product you would like to update");
 			Long id = Long.valueOf(getInput());
-			LOGGER.info("Please enter a first name");
-			String firstName = getInput();
-			LOGGER.info("Please enter a Last Name");
-			String lastName = getInput();
-			Customer product = productService.update(new Product(id, firstName, lastName));
-			LOGGER.info("Customer Updated");
+			
+			LOGGER.info("Please enter a new name for the product: ");
+			String name = getInput();
+			
+			LOGGER.info("Please enter a new price: ");
+			Double price = Double.valueOf(getInput());
+			
+			Product product = productService.update(new Product(id, name, price));
+			LOGGER.info("Product Updated");
 			return product;
 		}
 
@@ -77,7 +82,7 @@ public class ProductController implements CrudController<Product> {
 		 */
 		@Override
 		public void delete() {
-			LOGGER.info("Please enter the id of the customer you would like to delete");
+			LOGGER.info("Please enter the id of the product you would like to delete");
 			Long id = Long.valueOf(getInput());
 			productService.delete(id);
 		}

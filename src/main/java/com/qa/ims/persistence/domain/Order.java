@@ -5,13 +5,15 @@ public class Order {
 	private Integer order_id;
 	private Integer customer_id;
 	private Integer product_id;
+	private Integer quantity;
 	private Double total;
 
-	public Order(Integer order_id, Integer customer_id, Integer product_id, Double total) {
+	public Order(Integer order_id, Integer customer_id, Integer product_id, Integer quantity, Double total) {
 		super();
 		this.order_id = order_id;
 		this.customer_id = customer_id;
 		this.product_id = product_id;
+		this.setQuantity(quantity);
 		this.total = total;
 	}
 
@@ -44,6 +46,13 @@ public class Order {
 	}
 
 	public void setTotal(Double total) {
+		this.total = total;
+	}
+
+	public Order(Integer customer_id, Integer product_id, Double total) {
+		super();
+		this.customer_id = customer_id;
+		this.product_id = product_id;
 		this.total = total;
 	}
 
@@ -95,6 +104,14 @@ public class Order {
 		} else if (!total.equals(other.total))
 			return false;
 		return true;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 
 }

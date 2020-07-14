@@ -51,24 +51,28 @@ public class OrderController implements CrudController<Order> {
 		
 		Long customerID = null;
 		
-		LOGGER.info("Please enter a Customer ID: ");
+		LOGGER.info("Please enter the Customer ID correpsonding to who is making the order: ");
 		customerID = Long.valueOf(getInput());
 		
 		
-		LOGGER.info("Please enter a Product ID: ");
+		LOGGER.info("What is the ID of the product you wish to purchase?");
 		String product_id = getInput();
 		
+		LOGGER.info("How how many products would you like to purchase?");
+		Long quantity = Long.valueOf(getInput());
 		
-		Customer customer = customerService.create(new Customer(firstName, surname));
-		LOGGER.info("Customer created");
-		return customer;
+		
+		
+		Order order = orderService.create(new Order(customerID, product_id, quantity));
+		LOGGER.info("Order created ");
+		return order;
 	}
 
 	/**
 	 * Updates an existing customer by taking in user input
 	 */
 	@Override
-	public Customer update() {
+	public Order update() {
 		LOGGER.info("Please enter the id of the customer you would like to update");
 		Long id = Long.valueOf(getInput());
 		LOGGER.info("Please enter a first name");
@@ -85,9 +89,10 @@ public class OrderController implements CrudController<Order> {
 	 */
 	@Override
 	public void delete() {
-		LOGGER.info("Please enter the id of the customer you would like to delete");
-		Long id = Long.valueOf(getInput());
-		customerService.delete(id);
+		LOGGER.info("Please enter the id of the order you would like to delete");
+		Long order_id = Long.valueOf(getInput());
+		orderService.delete(order_id);
+		LOGGER.info("Order deleted");
 	}
 
 }
