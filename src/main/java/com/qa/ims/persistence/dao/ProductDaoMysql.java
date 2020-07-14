@@ -34,9 +34,9 @@ public class ProductDaoMysql implements Dao<Product> {
 	}
 
 	Product productFromResultSet(ResultSet resultSet) throws SQLException {
-		Long product_id = resultSet.getLong("Product ID");
-		String product_name = resultSet.getString("Product Name");
-		Double price = resultSet.getDouble("Price");
+		Long product_id = resultSet.getLong("product_id");
+		String product_name = resultSet.getString("product_name");
+		Double price = resultSet.getDouble("price");
 		return new Product(product_id, product_name, price);
 	}
 
@@ -49,7 +49,7 @@ public class ProductDaoMysql implements Dao<Product> {
 	public List<Product> readAll() {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("select * from products");) {
+				ResultSet resultSet = statement.executeQuery("select * from product");) {
 			ArrayList<Product> products = new ArrayList<>();
 			while (resultSet.next()) {
 				products.add(productFromResultSet(resultSet));
@@ -65,7 +65,7 @@ public class ProductDaoMysql implements Dao<Product> {
 	public Product readLatest() {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM products ORDER BY id DESC LIMIT 1");) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM product ORDER BY id DESC LIMIT 1");) {
 			resultSet.next();
 			return productFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -84,8 +84,8 @@ public class ProductDaoMysql implements Dao<Product> {
 	public Product create(Product product) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("insert into products(product_id, product_name, price) values('"
-					+ product.getProduct_id() + "','" + product.getProduct_name() + "','" + product.getPrice() + "')");
+			statement.executeUpdate("insert into product(product_name, price) values('" + product.getProduct_name()
+					+ "','" + product.getPrice() + "')");
 			return readLatest();
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
