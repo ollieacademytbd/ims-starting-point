@@ -47,10 +47,18 @@ public class OrderController implements CrudController<Order> {
 	 */
 	@Override
 	public Order create() {
+		
+		
+		Long customerID = null;
+		
 		LOGGER.info("Please enter a Customer ID: ");
-		Long customerID = getInput();
+		customerID = Long.valueOf(getInput());
+		
+		
 		LOGGER.info("Please enter a Product ID: ");
-		String surname = getInput();
+		String product_id = getInput();
+		
+		
 		Customer customer = customerService.create(new Customer(firstName, surname));
 		LOGGER.info("Customer created");
 		return customer;
