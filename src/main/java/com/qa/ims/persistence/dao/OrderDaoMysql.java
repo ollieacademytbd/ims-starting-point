@@ -10,10 +10,11 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.Utils;
 
-public abstract class OrderDaoMysql implements Dao<Order> {
+public class OrderDaoMysql implements Dao<Order> {
 
 	public static final Logger LOGGER = Logger.getLogger(OrderDaoMysql.class);
 
@@ -144,6 +145,12 @@ public abstract class OrderDaoMysql implements Dao<Order> {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());
 		}
+	}
+
+	@Override
+	public Customer delete(Customer customer) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
