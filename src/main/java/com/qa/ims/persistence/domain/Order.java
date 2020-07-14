@@ -5,9 +5,9 @@ public class Order {
 	private Integer order_id;
 	private Integer customer_id;
 	private Integer product_id;
-	private Integer total;
+	private Double total;
 
-	public Order(Integer order_id, Integer customer_id, Integer product_id, Integer total) {
+	public Order(Integer order_id, Integer customer_id, Integer product_id, Double total) {
 		super();
 		this.order_id = order_id;
 		this.customer_id = customer_id;
@@ -39,11 +39,11 @@ public class Order {
 		this.product_id = product_id;
 	}
 
-	public Integer getTotal() {
+	public Double getTotal() {
 		return total;
 	}
 
-	public void setTotal(Integer total) {
+	public void setTotal(Double total) {
 		this.total = total;
 	}
 
