@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
 import com.qa.ims.persistence.domain.Product;
 import com.qa.ims.utils.Utils;
 
-public abstract class ProductDaoMysql implements Dao<Product> {
+public class ProductDaoMysql implements Dao<Product> {
 
 	public static final Logger LOGGER = Logger.getLogger(ProductDaoMysql.class);
 
