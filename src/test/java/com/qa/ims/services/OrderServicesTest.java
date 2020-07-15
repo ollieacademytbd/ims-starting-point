@@ -21,7 +21,7 @@ public class OrderServicesTest {
 
 	@Test
 	public void customerServicesCreate() {
-		Order order = new Order(5L, 12.43);
+		Order order = new Order(1L, 1L, 1L, 5L, 12.43);
 		orderServices.create(order);
 		Mockito.verify(orderDao, Mockito.times(1)).create(order);
 	}

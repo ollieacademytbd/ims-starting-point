@@ -66,7 +66,6 @@ public class Ims {
 		default:
 			break;
 		}
-
 	}
 
 	public void doAction(CrudController<?> crudController, Action action) {
@@ -84,6 +83,7 @@ public class Ims {
 			crudController.delete();
 			break;
 		case RETURN:
+			imsSystem();
 			break;
 		default:
 			break;

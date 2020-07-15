@@ -49,13 +49,6 @@ public class Order {
 		this.total = total;
 	}
 
-	public Order(Long customer_id, Long product_id, Double total) {
-		super();
-		this.customer_id = customer_id;
-		this.product_id = product_id;
-		this.total = total;
-	}
-
 	public Order(Long customer_id, Long product_id, Long quantity) {
 		super();
 		this.customer_id = customer_id;
@@ -70,6 +63,21 @@ public class Order {
 		this.order_id = order_id;
 		this.total = total;
 
+	}
+
+	public Order(Long order_id, Long customer_id, Long quantity, Double total) {
+		super();
+		this.order_id = order_id;
+		this.customer_id = customer_id;
+		this.quantity = quantity;
+		this.total = total;
+	}
+
+	public Order(Long customer_id, Long quantity, Double total) {
+		super();
+		this.customer_id = customer_id;
+		this.quantity = quantity;
+		this.total = total;
 	}
 
 	public String toString() {

@@ -16,8 +16,8 @@ public class OrderTest {
 
 	@Before
 	public void setUp() {
-		order = new Order(1L, 6L, 33.33);
-		other = new Order(1L, 6L, 33.33);
+		order = new Order(1L, 1L, 6L, 33.33);
+		other = new Order(1L, 1L, 6L, 33.33);
 	}
 
 	@Test
@@ -64,13 +64,13 @@ public class OrderTest {
 
 	@Test
 	public void customerNameNullButOtherNameNotNull() {
-		order.setQuantity(null);
+		order.setOrder_id(null);
 		assertFalse(order.equals(other));
 	}
 
 	@Test
 	public void customerNamesNotEqual() {
-		other.setQuantity(6L);
+		other.setOrder_id(6L);
 		assertFalse(order.equals(other));
 	}
 
@@ -121,8 +121,9 @@ public class OrderTest {
 
 	@Test
 	public void constructorWithoutId() {
-		Order order = new Order(6L, 33.33);
-		assertNull(order.getOrder_id());
+		Order order = new Order(1L, 6L, 33.33);
+//		assertNull(order.getOrder_id());
+		assertNotNull(order.getCustomer_id());
 		assertNotNull(order.getQuantity());
 		assertNotNull(order.getTotal());
 	}
