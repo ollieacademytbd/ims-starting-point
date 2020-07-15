@@ -27,9 +27,9 @@ public class ProductControllerTest {
 	 * InjectMocks uses dependency injection to insert the mock into the customer
 	 * controller
 	 */
-	@Spy // for the methods in customerController
-	@InjectMocks // for any classes our customerController calls (in this case customerService)
-	private CustomerController customerController;
+	@Spy // for the methods in productController
+	@InjectMocks // for any classes our productController calls (in this case productService)
+	private ProductController productController;
 
 	@Test
 	public void readAllTest() {
@@ -60,7 +60,7 @@ public class ProductControllerTest {
 	@Test
 	public void updateTest() {
 //		ProductController productController = new ProductController(productServices);
-		Integer product_id = 1;
+		String product_id = "1L";
 		String product_name = "Milk";
 		Double price = 1.45;
 		Mockito.doReturn(product_name, price).when(productController).getInput();
@@ -75,7 +75,7 @@ public class ProductControllerTest {
 	 */
 	@Test
 	public void deleteTest() {
-		Integer product_id = 1;
+		Long product_id = (long) 1;
 		Mockito.doReturn(product_id).when(productController).getInput();
 		productController.delete();
 		Mockito.verify(productServices, Mockito.times(1)).delete(1L);

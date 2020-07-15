@@ -8,44 +8,41 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.qa.ims.persistence.dao.Dao;
-import com.qa.ims.persistence.domain.Customer;
+import com.qa.ims.persistence.domain.Product;
 
+@RunWith(MockitoJUnitRunner.class)
 public class ProductServicesTest {
 
-	@RunWith(MockitoJUnitRunner.class)
-	public class CustomerServicesTest {
+	@Mock
+	private Dao<Product> productDao;
 
-		@Mock
-		private Dao<Customer> customerDao;
+	@InjectMocks
+	private ProductServices productServices;
 
-		@InjectMocks
-		private CustomerServices customerServices;
-
-		@Test
-		public void customerServicesCreate() {
-			Customer customer = new Customer("chris", "perrins");
-			customerServices.create(customer);
-			Mockito.verify(customerDao, Mockito.times(1)).create(customer);
-		}
-
-//		@Test
-//		public void customerServicesRead() {
-//			customerServices.readAll();
-//			Mockito.verify(customerDao, Mockito.times(1)).readAll();
-//		}
-
-//		@Test
-//		public void customerServicesUpdate() {
-//			Customer customer = new Customer("chris", "perrins");
-//			customerServices.update(customer);
-//			Mockito.verify(customerDao, Mockito.times(1)).update(customer);
-//		}
-
-//		@Test
-//		public void customerServicesDelete() {
-//			customerServices.delete(1L);;
-//			Mockito.verify(customerDao, Mockito.times(1)).delete(1L);
-//		}
+	@Test
+	public void customerServicesCreate() {
+		Product product = new Product("Cheese", 3.10);
+		productServices.create(product);
+		Mockito.verify(productDao, Mockito.times(1)).create(product);
 	}
 
+	@Test
+	public void customerServicesRead() {
+		productServices.readAll();
+		Mockito.verify(productDao, Mockito.times(1)).readAll();
+	}
+
+	@Test
+	public void customerServicesUpdate() {
+		Product product = new Product("Cheese", 3.10);
+		productServices.update(product);
+		Mockito.verify(productDao, Mockito.times(1)).update(product);
+	}
+
+	@Test
+	public void customerServicesDelete() {
+		productServices.delete(1L);
+		;
+		Mockito.verify(productDao, Mockito.times(1)).delete(1L);
+	}
 }
