@@ -5,7 +5,7 @@ public class Product {
 	private String product_name;
 	private Double price;
 
-	public Product(long product_id, String product_name, double price) {
+	public Product(Long product_id, String product_name, Double price) {
 		// super();
 		this.product_id = product_id;
 		this.product_name = product_name;

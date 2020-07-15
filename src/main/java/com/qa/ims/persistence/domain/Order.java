@@ -2,13 +2,13 @@ package com.qa.ims.persistence.domain;
 
 public class Order {
 
-	private Integer order_id;
-	private Integer customer_id;
-	private Integer product_id;
-	private Integer quantity;
+	private Long order_id;
+	private Long customer_id;
+	private Long product_id;
+	private Long quantity;
 	private Double total;
 
-	public Order(Integer order_id, Integer customer_id, Integer product_id, Integer quantity, Double total) {
+	public Order(Long order_id, Long customer_id, Long product_id, Long quantity, Double total) {
 		super();
 		this.order_id = order_id;
 		this.customer_id = customer_id;
@@ -17,27 +17,27 @@ public class Order {
 		this.total = total;
 	}
 
-	public Integer getOrder_id() {
+	public Long getOrder_id() {
 		return order_id;
 	}
 
-	public void setOrder_id(Integer order_id) {
+	public void setOrder_id(Long order_id) {
 		this.order_id = order_id;
 	}
 
-	public Integer getCustomer_id() {
+	public Long getCustomer_id() {
 		return customer_id;
 	}
 
-	public void setCustomer_id(Integer customer_id) {
+	public void setCustomer_id(Long customer_id) {
 		this.customer_id = customer_id;
 	}
 
-	public Integer getProduct_id() {
+	public Long getProduct_id() {
 		return product_id;
 	}
 
-	public void setProduct_id(Integer product_id) {
+	public void setProduct_id(Long product_id) {
 		this.product_id = product_id;
 	}
 
@@ -49,21 +49,21 @@ public class Order {
 		this.total = total;
 	}
 
-	public Order(Integer customer_id, Integer product_id, Double total) {
+	public Order(Long customer_id, Long product_id, Double total) {
 		super();
 		this.customer_id = customer_id;
 		this.product_id = product_id;
 		this.total = total;
 	}
 
-	public Order(Integer customer_id, Integer product_id, Integer quantity) {
+	public Order(Long customer_id, Long product_id, Long quantity) {
 		super();
 		this.customer_id = customer_id;
 		this.product_id = product_id;
 		this.quantity = quantity;
 	}
 
-	public Order(Integer order_id, Double total) {
+	public Order(Long order_id, Double total) {
 		// TODO Auto-generated constructor stub
 
 		super();
@@ -73,8 +73,7 @@ public class Order {
 	}
 
 	public String toString() {
-		return "OrderID: " + order_id + " \n CustomerID: " + customer_id + " \n ProductID: " + product_id
-				+ " \n Total: " + total;
+		return "Order ID: " + order_id + " Customer ID: " + customer_id + " Quantity: " + quantity + " Total: " + total;
 
 	}
 
@@ -122,11 +121,11 @@ public class Order {
 		return true;
 	}
 
-	public Integer getQuantity() {
+	public Long getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(Integer quantity) {
+	public void setQuantity(Long quantity) {
 		this.quantity = quantity;
 	}
 

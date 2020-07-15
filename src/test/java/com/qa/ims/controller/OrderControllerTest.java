@@ -39,20 +39,20 @@ public class OrderControllerTest {
 	public void readAllTest() {
 		OrderController orderController = new OrderController(orderServices);
 		List<Order> orders = new ArrayList<>();
-		orders.add(new Order(4, 65.54));
-		orders.add(new Order(8, 31.48));
-		orders.add(new Order(1, 567.32));
+		orders.add(new Order(4L, 65.54));
+		orders.add(new Order(8L, 31.48));
+		orders.add(new Order(1L, 567.32));
 		Mockito.when(orderServices.readAll()).thenReturn(orders);
 		assertEquals(orders, orderController.readAll());
 	}
 
 	@Test
 	public void createTest() {
-		Integer quantity = 6;
+		Long quantity = 6L;
 		Double total = 59.00;
 		Mockito.doReturn(quantity, total).when(orderController).getInput();
 		Order order = new Order(quantity, total);
-		Order savedOrder = new Order(1, 2, 54.77);
+		Order savedOrder = new Order(1L, 2L, 54.77);
 		Mockito.when(orderServices.create(order)).thenReturn(savedOrder);
 		assertEquals(savedOrder, orderController.create());
 	}
@@ -62,11 +62,11 @@ public class OrderControllerTest {
 	 */
 	@Test
 	public void updateTest() {
-		Integer order_id = 1;
-		Integer quantity = 5;
+		Long order_id = 1L;
+		Long quantity = 5L;
 		Double total = 55.66;
 		Mockito.doReturn(order_id, quantity, total).when(orderController).getInput();
-		Order order = new Order(1, quantity, total);
+		Order order = new Order(1L, quantity, total);
 		Mockito.when(orderServices.update(order)).thenReturn(order);
 		assertEquals(order, orderController.update());
 	}
@@ -77,7 +77,7 @@ public class OrderControllerTest {
 	 */
 	@Test
 	public void deleteTest() {
-		Integer order_id = 1;
+		Long order_id = 1L;
 		Mockito.doReturn(order_id).when(orderController).getInput();
 		orderController.delete();
 		Mockito.verify(orderServices, Mockito.times(1)).delete(1L);

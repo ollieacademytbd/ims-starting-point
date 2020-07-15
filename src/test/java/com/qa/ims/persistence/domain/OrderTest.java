@@ -16,8 +16,8 @@ public class OrderTest {
 
 	@Before
 	public void setUp() {
-		order = new Order(1, 6, 33.33);
-		other = new Order(1, 6, 33.33);
+		order = new Order(1L, 6L, 33.33);
+		other = new Order(1L, 6L, 33.33);
 	}
 
 	@Test
@@ -47,8 +47,8 @@ public class OrderTest {
 
 	@Test
 	public void createCustomerWithId() {
-		assertEquals(1, order.getOrder_id(), 0);
-		assertEquals(6, order.getQuantity(), 0);
+		assertEquals(1L, order.getOrder_id(), 0);
+		assertEquals(6L, order.getQuantity(), 0);
 		assertEquals(33.33, order.getTotal(), 0);
 	}
 
@@ -70,7 +70,7 @@ public class OrderTest {
 
 	@Test
 	public void customerNamesNotEqual() {
-		other.setQuantity(6);
+		other.setQuantity(6L);
 		assertFalse(order.equals(other));
 	}
 
@@ -96,7 +96,7 @@ public class OrderTest {
 
 	@Test
 	public void otherIdDifferent() {
-		other.setOrder_id(2);
+		other.setOrder_id(2L);
 		assertFalse(order.equals(other));
 	}
 
@@ -121,7 +121,7 @@ public class OrderTest {
 
 	@Test
 	public void constructorWithoutId() {
-		Order order = new Order(6, 33.33);
+		Order order = new Order(6L, 33.33);
 		assertNull(order.getOrder_id());
 		assertNotNull(order.getQuantity());
 		assertNotNull(order.getTotal());
@@ -141,7 +141,7 @@ public class OrderTest {
 
 	@Test
 	public void toStringTest() {
-		String toString = "Order ID: 1 first Quantity: 6 Total: 33.33";
+		String toString = "Order ID: 1 Customer ID: 1 Quantity: 6 Total: 33.33";
 		assertEquals(toString, order.toString());
 	}
 }

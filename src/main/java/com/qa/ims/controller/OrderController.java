@@ -46,13 +46,13 @@ public class OrderController implements CrudController<Order> {
 	public Order create() {
 
 		LOGGER.info("Please enter the Customer ID correpsonding to who is making the order: ");
-		Integer customerID1 = Integer.valueOf(getInput());
+		Long customerID1 = Long.valueOf(getInput());
 
 		LOGGER.info("What is the ID of the product you wish to purchase?");
-		Integer product_id = Integer.valueOf(getInput());
+		Long product_id = Long.valueOf(getInput());
 
 		LOGGER.info("How many products would you like to purchase?");
-		Integer quantity = Integer.valueOf(getInput());
+		Long quantity = Long.valueOf(getInput());
 
 		Order order = orderService.create(new Order(customerID1, product_id, quantity));
 		LOGGER.info("Order created ");
@@ -65,7 +65,7 @@ public class OrderController implements CrudController<Order> {
 	@Override
 	public Order update() {
 		LOGGER.info("Please enter the id of the order you would like to update: ");
-		Integer order_id = Integer.valueOf(getInput());
+		Long order_id = Long.valueOf(getInput());
 
 		LOGGER.info("Please enter the new total of the order: ");
 		Double total = Double.valueOf(getInput());

@@ -6,13 +6,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+//import org.mockito.InjectMocks;
+//import org.mockito.Mock;
+//import org.mockito.Mockito;
+//import org.mockito.Spy;
+//import org.mockito.junit.*;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.Spy;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import com.qa.ims.persistence.domain.Product;
 import com.qa.ims.services.ProductServices;
+
+@RunWith(MockitoJUnitRunner.class)
 
 public class ProductControllerTest {
 
@@ -29,6 +38,7 @@ public class ProductControllerTest {
 	 */
 	@Spy // for the methods in productController
 	@InjectMocks // for any classes our productController calls (in this case productService)
+
 	private ProductController productController;
 
 	@Test
@@ -45,11 +55,11 @@ public class ProductControllerTest {
 	@Test
 	public void createTest() {
 //		ProductController productController = new ProductController(productServices);
-		String product_name = "Cheese";
-		Double price = 2.49;
-		Mockito.doReturn(product_name, price).when(productController).getInput();
+		String product_name = "Ham";
+		Double price = 4.0;
+		Mockito.doReturn(product_name, price.toString()).when(productController).getInput();
 		Product product = new Product(product_name, price);
-		Product savedProduct = new Product(1L, "Cheese", 2.49);
+		Product savedProduct = new Product(1L, "Ham", 4.0);
 		Mockito.when(productServices.create(product)).thenReturn(savedProduct);
 		assertEquals(savedProduct, productController.create());
 	}
@@ -60,10 +70,10 @@ public class ProductControllerTest {
 	@Test
 	public void updateTest() {
 //		ProductController productController = new ProductController(productServices);
-		String product_id = "1L";
+		Long product_id = 1L;
 		String product_name = "Milk";
 		Double price = 1.45;
-		Mockito.doReturn(product_name, price).when(productController).getInput();
+		Mockito.doReturn(product_id.toString(), product_name, price.toString()).when(productController).getInput();
 		Product product = new Product(1L, product_name, price);
 		Mockito.when(productServices.update(product)).thenReturn(product);
 		assertEquals(product, productController.update());
@@ -75,8 +85,8 @@ public class ProductControllerTest {
 	 */
 	@Test
 	public void deleteTest() {
-		Long product_id = (long) 1;
-		Mockito.doReturn(product_id).when(productController).getInput();
+		Long product_id = 1L;
+		Mockito.doReturn(product_id.toString()).when(productController).getInput();
 		productController.delete();
 		Mockito.verify(productServices, Mockito.times(1)).delete(1L);
 	}

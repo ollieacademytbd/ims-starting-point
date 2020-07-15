@@ -35,10 +35,10 @@ public class OrderDaoMysql implements Dao<Order> {
 	}
 
 	Order orderFromResultSet(ResultSet resultSet) throws SQLException {
-		Integer order_id = resultSet.getInt("order_id");
-		Integer customer_id = resultSet.getInt("customer_id");
-		Integer product_id = resultSet.getInt("product_id");
-		Integer quantity = resultSet.getInt("quantity");
+		Long order_id = resultSet.getLong("order_id");
+		Long customer_id = resultSet.getLong("customer_id");
+		Long product_id = resultSet.getLong("product_id");
+		Long quantity = resultSet.getLong("quantity");
 		Double total = resultSet.getDouble("total");
 		return new Order(order_id, customer_id, product_id, quantity, total);
 	}
@@ -97,10 +97,10 @@ public class OrderDaoMysql implements Dao<Order> {
 		return null;
 	}
 
-	public Order readOrder(Integer order_id) {
+	public Order readOrder(Long long1) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM orders WHERE order_id = " + order_id);) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM orders WHERE order_id = " + long1);) {
 			resultSet.next();
 			return orderFromResultSet(resultSet);
 		} catch (Exception e) {
