@@ -18,11 +18,11 @@ public class Product {
 		this.price = price;
 	}
 
-	public long getProduct_id() {
+	public Long getProduct_id() {
 		return product_id;
 	}
 
-	public void setProduct_id(long product_id) {
+	public void setProduct_id(Long product_id) {
 		this.product_id = product_id;
 	}
 
@@ -34,16 +34,16 @@ public class Product {
 		this.product_name = product_name;
 	}
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
 	public String toString() {
-		return "Product ID: " + product_id + " \n Product Name: " + product_name + " \n Price: " + price;
+		return "Product ID: " + product_id + " Product Name: " + product_name + " Price: " + price;
 	}
 
 	@Override
