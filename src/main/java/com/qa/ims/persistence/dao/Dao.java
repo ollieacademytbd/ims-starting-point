@@ -13,6 +13,7 @@ public interface Dao<T> {
 	T update(T t);
 
 	void delete(long id);
+//	void delete(Long cusotmer_id);
 
 	/**
 	 * Deletes a customer in the database

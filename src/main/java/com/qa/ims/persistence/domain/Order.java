@@ -93,6 +93,7 @@ public class Order {
 		result = prime * result + ((product_id == null) ? 0 : product_id.hashCode());
 		result = prime * result + ((customer_id == null) ? 0 : customer_id.hashCode());
 		result = prime * result + ((total == null) ? 0 : total.hashCode());
+		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
 		return result;
 
 	}

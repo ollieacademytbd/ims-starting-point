@@ -54,7 +54,10 @@ public class OrderController implements CrudController<Order> {
 		LOGGER.info("How many products would you like to purchase?");
 		Long quantity = Long.valueOf(getInput());
 
-		Order order = orderService.create(new Order(customerID1, product_id, quantity));
+		LOGGER.info("What is the total of your order?");
+		Double total = Double.valueOf(getInput());
+
+		Order order = orderService.create(new Order(customerID1, product_id, quantity, total));
 		LOGGER.info("Order created ");
 		return order;
 	}

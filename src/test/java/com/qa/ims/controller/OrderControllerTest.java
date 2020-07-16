@@ -48,11 +48,15 @@ public class OrderControllerTest {
 
 	@Test
 	public void createTest() {
+
+		Long customer_id = 1L;
+		Long product_id = 1L;
 		Long quantity = 6L;
 		Double total = 59.00;
-		Mockito.doReturn(quantity.toString(), total.toString()).when(orderController).getInput();
-		Order order = new Order(quantity, total);
-		Order savedOrder = new Order(6L, 59.00);
+		Mockito.doReturn(customer_id.toString(), product_id.toString(), quantity.toString(), total.toString())
+				.when(orderController).getInput();
+		Order order = new Order(customer_id, product_id, quantity, total);
+		Order savedOrder = new Order(1L, 1L, 6L, 59.00);
 		Mockito.when(orderServices.create(order)).thenReturn(savedOrder);
 		assertEquals(savedOrder, orderController.create());
 	}
@@ -63,10 +67,13 @@ public class OrderControllerTest {
 	@Test
 	public void updateTest() {
 		Long order_id = 1L;
+		Long customer_id = 2L;
+		Long product_id = 1L;
 		Long quantity = 5L;
 		Double total = 55.66;
-		Mockito.doReturn(order_id.toString(), quantity.toString(), total.toString()).when(orderController).getInput();
-		Order order = new Order(1L, quantity, total);
+		Mockito.doReturn(order_id.toString(), customer_id.toString(), product_id.toString(), quantity.toString(),
+				total.toString()).when(orderController).getInput();
+		Order order = new Order(1L, customer_id, product_id, quantity, total);
 		Mockito.when(orderServices.update(order)).thenReturn(order);
 		assertEquals(order, orderController.update());
 	}

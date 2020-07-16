@@ -66,7 +66,8 @@ public class ProductDaoMysql implements Dao<Product> {
 	public Product readLatest() {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM product ORDER BY id DESC LIMIT 1");) {
+				ResultSet resultSet = statement
+						.executeQuery("SELECT * FROM product ORDER BY product_id DESC LIMIT 1");) {
 			resultSet.next();
 			return productFromResultSet(resultSet);
 		} catch (Exception e) {

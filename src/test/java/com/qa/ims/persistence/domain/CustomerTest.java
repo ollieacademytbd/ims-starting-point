@@ -22,12 +22,12 @@ public class CustomerTest {
 
 	@Test
 	public void settersTest() {
-		assertNotNull(customer.getId());
+		assertNotNull(customer.getCustomer_id());
 		assertNotNull(customer.getFirstName());
 		assertNotNull(customer.getLastName());
 
 		customer.setId(null);
-		assertNull(customer.getId());
+		assertNull(customer.getCustomer_id());
 		customer.setFirstName(null);
 		assertNull(customer.getFirstName());
 		customer.setLastName(null);
@@ -47,7 +47,7 @@ public class CustomerTest {
 
 	@Test
 	public void createCustomerWithId() {
-		assertEquals(1L, customer.getId(), 0);
+		assertEquals(1L, customer.getCustomer_id(), 0);
 		assertEquals("Chris", customer.getFirstName());
 		assertEquals("Perrins", customer.getLastName());
 	}
@@ -122,7 +122,7 @@ public class CustomerTest {
 	@Test
 	public void constructorWithoutId() {
 		Customer customer = new Customer("Chris", "Perrins");
-		assertNull(customer.getId());
+		assertNull(customer.getCustomer_id());
 		assertNotNull(customer.getFirstName());
 		assertNotNull(customer.getLastName());
 	}

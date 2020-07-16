@@ -35,12 +35,12 @@ public class OrderDaoMysql implements Dao<Order> {
 	}
 
 	Order orderFromResultSet(ResultSet resultSet) throws SQLException {
-		Long order_id = resultSet.getLong("order_id");
+//		Long order_id = resultSet.getLong("order_id");
 		Long customer_id = resultSet.getLong("customer_id");
 		Long product_id = resultSet.getLong("product_id");
 		Long quantity = resultSet.getLong("quantity");
 		Double total = resultSet.getDouble("total");
-		return new Order(order_id, customer_id, product_id, quantity, total);
+		return new Order(customer_id, product_id, quantity, total);
 	}
 
 	/**
@@ -68,7 +68,8 @@ public class OrderDaoMysql implements Dao<Order> {
 	public Order readLatest() {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM customers ORDER BY id DESC LIMIT 1");) {
+				ResultSet resultSet = statement
+						.executeQuery("SELECT * FROM customers ORDER BY customer_id DESC LIMIT 1");) {
 			resultSet.next();
 			return orderFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -87,7 +88,8 @@ public class OrderDaoMysql implements Dao<Order> {
 	public Order create(Order order) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("insert into orders(customer_id, total) values('" + order.getCustomer_id() + "','"
+			statement.executeUpdate("INSERT INTO orders(customer_id, product_id, quantity, total) values('"
+					+ order.getCustomer_id() + "','" + order.getProduct_id() + "','" + order.getQuantity() + "','"
 					+ order.getTotal() + "')");
 			return readLatest();
 		} catch (Exception e) {
@@ -117,12 +119,12 @@ public class OrderDaoMysql implements Dao<Order> {
 	 *                 update that customer in the database
 	 * @return
 	 */
-	@Override
+
 	public Order update(Order order) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
 			statement.executeUpdate("update orders set customer_id ='" + order.getCustomer_id() + "', total ='"
-					+ order.getTotal() + "' where id =" + order.getOrder_id());
+					+ order.getTotal() + "' where order_id =" + order.getOrder_id());
 			return readOrder(order.getOrder_id());
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
@@ -136,7 +138,7 @@ public class OrderDaoMysql implements Dao<Order> {
 	 *
 	 * @param id - id of the customer
 	 */
-	@Override
+
 	public void delete(long id) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
