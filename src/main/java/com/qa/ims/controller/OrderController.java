@@ -46,7 +46,7 @@ public class OrderController implements CrudController<Order> {
 	public Order create() {
 
 		LOGGER.info("Please enter the Customer ID correpsonding to who is making the order: ");
-		Long customerID1 = Long.valueOf(getInput());
+		Long customer_id = Long.valueOf(getInput());
 
 		LOGGER.info("What is the ID of the product you wish to purchase?");
 		Long product_id = Long.valueOf(getInput());
@@ -57,7 +57,7 @@ public class OrderController implements CrudController<Order> {
 		LOGGER.info("What is the total of your order?");
 		Double total = Double.valueOf(getInput());
 
-		Order order = orderService.create(new Order(customerID1, product_id, quantity, total));
+		Order order = orderService.create(new Order(1L, customer_id, product_id, quantity, total));
 		LOGGER.info("Order created ");
 		return order;
 	}
@@ -67,13 +67,20 @@ public class OrderController implements CrudController<Order> {
 	 */
 	@Override
 	public Order update() {
+
+		LOGGER.info("Customer making the amendment: ");
+		Long customer_id = Long.valueOf(getInput());
+
 		LOGGER.info("Please enter the id of the order you would like to update: ");
 		Long order_id = Long.valueOf(getInput());
 
-		LOGGER.info("Please enter the new total of the order: ");
+		LOGGER.info("Please enter the id of the product to add to order: ");
 		Double total = Double.valueOf(getInput());
 
-		Order order = orderService.update(new Order(order_id, total));
+//		LOGGER.info("Please enter the new total of the order: ");
+//		Double total = Double.valueOf(getInput());
+
+		Order order = orderService.update(new Order(customer_id, order_id, total));
 		LOGGER.info("Order Updated");
 		return order;
 	}

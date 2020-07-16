@@ -2,3 +2,4 @@ create database if not exists ims;
 create table if not exists ims.customers(customer_id int primary key auto_increment, first_name varchar(40), last_name varchar(40));
 create table if not exists ims.product(product_id int primary key auto_increment, product_name varchar(40), price int);
 create table if not exists ims.orders(order_id int primary key auto_increment,customer_id int NOT NULL,product_id int NOT NULL, quantity int, total double, FOREIGN KEY (customer_id) REFERENCES customers (customer_id), FOREIGN KEY (product_id) REFERENCES product (product_id));
+create table if not exists ims.orderline(orderline_id int primary key auto_increment, order_id int, product_id int, quantity int default 1, FOREIGN KEY (order_id) REFERENCES orders(order_id), FOREIGN KEY (product_id) REFERENCES product (product_id));

@@ -80,6 +80,14 @@ public class Order {
 		this.total = total;
 	}
 
+	public Order(Long customer_id, Long quantity) {
+		// TODO Auto-generated constructor stub
+
+		super();
+		this.customer_id = customer_id;
+		this.quantity = quantity;
+	}
+
 	public String toString() {
 		return "Order ID: " + order_id + " Customer ID: " + customer_id + " Quantity: " + quantity + " Total: " + total;
 

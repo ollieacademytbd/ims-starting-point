@@ -1,3 +1,5 @@
-create database if not exists ims;
-drop table if exists ims.customers;
-create table ims.customers(id int primary key auto_increment, first_name varchar(40), surname varchar(40));
+create database if not exists ims_test;
+create table if not exists ims_test.customers(customer_id int primary key auto_increment, first_name varchar(40), last_name varchar(40));
+create table if not exists ims_test.product(product_id int primary key auto_increment, product_name varchar(40), price int);
+create table if not exists ims_test.orders(order_id int primary key auto_increment,customer_id int NOT NULL,product_id int NOT NULL, quantity int, total double, FOREIGN KEY (customer_id) REFERENCES customers (customer_id), FOREIGN KEY (product_id) REFERENCES product (product_id));
+create table if not exists ims_test.orderline(orderline_id int primary key auto_increment, order_id int, product_id int, quantity int default 1, FOREIGN KEY (order_id) REFERENCES orders(order_id), FOREIGN KEY (product_id) REFERENCES product (product_id));
