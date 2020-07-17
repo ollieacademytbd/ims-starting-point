@@ -2,7 +2,7 @@ package com.qa.ims.persistence.dao;
 
 import java.util.List;
 
-public interface LineDao<T> {
+public interface Dao2<T> {
 
 	List<T> readAll(Long id);
 

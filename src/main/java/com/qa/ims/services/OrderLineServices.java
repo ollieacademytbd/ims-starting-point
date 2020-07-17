@@ -2,18 +2,18 @@ package com.qa.ims.services;
 
 import java.util.List;
 
-import com.qa.ims.persistence.dao.LineDao;
+import com.qa.ims.persistence.dao.Dao2;
 import com.qa.ims.persistence.domain.OrderLine;
 
-public class OrderLineServices implements LineServices<OrderLine> {
+public class OrderLineServices implements CrudServices2<OrderLine> {
 
-	private LineDao<OrderLine> orderLineDao;
+	private Dao2<OrderLine> orderLineDao;
 
 //
 //	public OrderLineServices(OrderLineDaoMysql orderlineDaoMysql) {
 //		this.orderlineDao = orderlineDaoMysql;
 
-	public OrderLineServices(LineDao<OrderLine> orderLineDao) {
+	public OrderLineServices(Dao2<OrderLine> orderLineDao) {
 		this.orderLineDao = orderLineDao;
 	}
 

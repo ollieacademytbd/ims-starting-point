@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 
 import com.qa.ims.persistence.domain.OrderLine;
 import com.qa.ims.services.CrudServices;
-import com.qa.ims.services.LineServices;
+import com.qa.ims.services.CrudServices2;
 import com.qa.ims.utils.Utils;
 
 public class OrderLineCOntroller implements CrudController<OrderLine> {
@@ -18,9 +18,9 @@ public class OrderLineCOntroller implements CrudController<OrderLine> {
 
 	public static final Logger LOGGER = Logger.getLogger(OrderLineCOntroller.class);
 
-	private LineServices<OrderLine> orderlineService;
+	private CrudServices2<OrderLine> orderlineService;
 
-	public OrderLineCOntroller(LineServices<OrderLine> orderlineService) {
+	public OrderLineCOntroller(CrudServices2<OrderLine> orderlineService) {
 		this.orderlineService = orderlineService;
 	}
 

@@ -2,7 +2,7 @@ package com.qa.ims.services;
 
 import java.util.List;
 
-public interface LineServices<OrderLine> {
+public interface CrudServices2<OrderLine> {
 
 	public List<OrderLine> realAll(Long id);
 
