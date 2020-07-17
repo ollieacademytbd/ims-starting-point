@@ -1,41 +1,23 @@
-Coverage: 34%
+Coverage: 69.7%
 # Project Title
 
-One Paragraph of project description goes here
+IMS Project
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+IMS will allow you to create, read, update and delete customers, orders and products formm a database.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+Download Java and 
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+Would need the jar file to install the program, however jar file was not creating.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system. Break down into which tests and what they do
+Can run the test using JUnit on Eclipse and be able to see whoch tests pass or fail. Howveer not able to run the test through git using mvn test as surefire dependancy is not working.
 
 ### Unit Tests 
 
@@ -47,15 +29,7 @@ Give an example
 
 ### Integration Tests 
 Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
+![Coverage](/Pictures.covarage.png)
 ```
 Give an example
 ```
@@ -76,6 +50,7 @@ We use [SemVer](http://semver.org/) for versioning.
 
 * **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
 * **Nick Johnson** - *Refinements* - [nickrstewarttds](https://github.com/nickrstewarttds)
+* **Oliver Hagger** 
 
 ## License
 
