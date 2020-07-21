@@ -5,38 +5,43 @@ IMS Project
 
 ## Getting Started
 
-IMS will allow you to create, read, update and delete customers, orders and products formm a database.
+IMS will allow you to create, read, update and delete customers, orders and products from a database.
 
 ### Prerequisites
 
-Download Java and 
+Download Java from the link below.
+
+https://www.oracle.com/uk/java/technologies/javase/javase-jdk8-downloads.html
+
+Choose the relevent link depending on your operating system.
+
+Once installed, download a system to run the program on. One example of this is MySQL, this can be downlaoded using the following link below. 
+
+https://www.mysql.com/downloads/
+
+Can also be run and edited using Eclipse downloadbale using the following link below.
+
+https://www.eclipse.org/downloads/
+
+Intellij can also be used. This can be downloaded using the following link.
+
+https://www.jetbrains.com/idea/download/#section=mac
 
 ### Installing
 
-Would need the jar file to install the program, however jar file was not creating.
+Use the .jar file located in my Github dependancy. This can be downloaded using the following link.
+
+https://github.com/ollieacademytbd/ims-starting-point/blob/master/OliverHagger-20SoftwareJun1-jar-with-dependencies.jar
+
+Using this downladed .jar file, incorporate it to MySQL, Eclipse or Intellij. 
 
 ## Running the tests
 
-Can run the test using JUnit on Eclipse and be able to see whoch tests pass or fail. Howveer not able to run the test through git using mvn test as surefire dependancy is not working.
+JUnit tests can be performed on this program using Maven dependancies by using Eclipse or Intellij. Running these tests can give the the overall coverage of the code to see how accurate it is. Using command prompt expressions such as 'mvn test' can be used to form Surefire reports which also give coverage of the code. 
 
 ### Unit Tests 
 
-Explain what these tests test, why and how to run them
 
-```
-Give an example
-```
-
-### Integration Tests 
-Explain what these tests test, why and how to run them
-![Coverage](/Pictures.covarage.png)
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
