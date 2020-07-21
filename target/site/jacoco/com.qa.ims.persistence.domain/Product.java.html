@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Product.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">OliverHagger-20SoftwareJun1</a> &gt; <a href="index.source.html" class="el_package">com.qa.ims.persistence.domain</a> &gt; <span class="el_source">Product.java</span></div><h1>Product.java</h1><pre class="source lang-java linenums">package com.qa.ims.persistence.domain;
+
+public class Product {
+	private Long product_id;
+	private String product_name;
+	private Double price;
+
+<span class="fc" id="L8">	public Product(Long product_id, String product_name, Double price) {</span>
+		// super();
+<span class="fc" id="L10">		this.product_id = product_id;</span>
+<span class="fc" id="L11">		this.product_name = product_name;</span>
+<span class="fc" id="L12">		this.price = price;</span>
+<span class="fc" id="L13">	}</span>
+
+	public Product(String product_name, Double price) {
+<span class="fc" id="L16">		super();</span>
+<span class="fc" id="L17">		this.product_name = product_name;</span>
+<span class="fc" id="L18">		this.price = price;</span>
+<span class="fc" id="L19">	}</span>
+
+	public Long getProduct_id() {
+<span class="fc" id="L22">		return product_id;</span>
+	}
+
+	public void setProduct_id(Long product_id) {
+<span class="fc" id="L26">		this.product_id = product_id;</span>
+<span class="fc" id="L27">	}</span>
+
+	public String getProduct_name() {
+<span class="fc" id="L30">		return product_name;</span>
+	}
+
+	public void setProduct_name(String product_name) {
+<span class="fc" id="L34">		this.product_name = product_name;</span>
+<span class="fc" id="L35">	}</span>
+
+	public Double getPrice() {
+<span class="fc" id="L38">		return price;</span>
+	}
+
+	public void setPrice(Double price) {
+<span class="fc" id="L42">		this.price = price;</span>
+<span class="fc" id="L43">	}</span>
+
+	public String toString() {
+<span class="fc" id="L46">		return &quot;Product ID: &quot; + product_id + &quot; Product Name: &quot; + product_name + &quot; Price: &quot; + price;</span>
+	}
+
+	@Override
+	public int hashCode() {
+<span class="fc" id="L51">		final int prime = 31;</span>
+<span class="fc" id="L52">		int result = 1;</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">		result = prime * result + ((product_name == null) ? 0 : product_name.hashCode());</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">		result = prime * result + ((product_id == null) ? 0 : product_id.hashCode());</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">		result = prime * result + ((price == null) ? 0 : price.hashCode());</span>
+<span class="fc" id="L56">		return result;</span>
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+<span class="fc bfc" id="L61" title="All 2 branches covered.">		if (this == obj)</span>
+<span class="fc" id="L62">			return true;</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">		if (obj == null)</span>
+<span class="fc" id="L64">			return false;</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">		if (getClass() != obj.getClass())</span>
+<span class="fc" id="L66">			return false;</span>
+<span class="fc" id="L67">		Product other = (Product) obj;</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">		if (product_id == null) {</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">			if (other.product_id != null)</span>
+<span class="fc" id="L70">				return false;</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">		} else if (!product_id.equals(other.product_id))</span>
+<span class="fc" id="L72">			return false;</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">		if (product_name == null) {</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">			if (other.product_name != null)</span>
+<span class="fc" id="L75">				return false;</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">		} else if (!product_name.equals(other.product_name))</span>
+<span class="fc" id="L77">			return false;</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">		if (price == null) {</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">			if (other.price != null)</span>
+<span class="fc" id="L80">				return false;</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">		} else if (!price.equals(other.price))</span>
+<span class="fc" id="L82">			return false;</span>
+<span class="fc" id="L83">		return true;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

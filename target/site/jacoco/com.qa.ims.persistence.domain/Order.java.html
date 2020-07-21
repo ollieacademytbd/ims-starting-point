@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Order.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">OliverHagger-20SoftwareJun1</a> &gt; <a href="index.source.html" class="el_package">com.qa.ims.persistence.domain</a> &gt; <span class="el_source">Order.java</span></div><h1>Order.java</h1><pre class="source lang-java linenums">package com.qa.ims.persistence.domain;
+
+public class Order {
+
+	private Long order_id;
+	private Long customer_id;
+	private Long product_id;
+	private Long quantity;
+	private Double total;
+
+	public Order(Long order_id, Long customer_id, Long product_id, Long quantity, Double total) {
+<span class="fc" id="L12">		super();</span>
+<span class="fc" id="L13">		this.order_id = order_id;</span>
+<span class="fc" id="L14">		this.customer_id = customer_id;</span>
+<span class="fc" id="L15">		this.product_id = product_id;</span>
+<span class="fc" id="L16">		this.quantity = quantity;</span>
+<span class="fc" id="L17">		this.total = total;</span>
+<span class="fc" id="L18">	}</span>
+
+	public Long getOrder_id() {
+<span class="fc" id="L21">		return order_id;</span>
+	}
+
+	public void setOrder_id(Long order_id) {
+<span class="fc" id="L25">		this.order_id = order_id;</span>
+<span class="fc" id="L26">	}</span>
+
+	public Long getCustomer_id() {
+<span class="fc" id="L29">		return customer_id;</span>
+	}
+
+	public void setCustomer_id(Long customer_id) {
+<span class="nc" id="L33">		this.customer_id = customer_id;</span>
+<span class="nc" id="L34">	}</span>
+
+	public Long getProduct_id() {
+<span class="nc" id="L37">		return product_id;</span>
+	}
+
+	public void setProduct_id(Long product_id) {
+<span class="nc" id="L41">		this.product_id = product_id;</span>
+<span class="nc" id="L42">	}</span>
+
+	public Double getTotal() {
+<span class="fc" id="L45">		return total;</span>
+	}
+
+	public void setTotal(Double total) {
+<span class="fc" id="L49">		this.total = total;</span>
+<span class="fc" id="L50">	}</span>
+
+	public Order(Long customer_id, Long product_id, Long quantity) {
+<span class="nc" id="L53">		super();</span>
+<span class="nc" id="L54">		this.customer_id = customer_id;</span>
+<span class="nc" id="L55">		this.product_id = product_id;</span>
+<span class="nc" id="L56">		this.quantity = quantity;</span>
+<span class="nc" id="L57">	}</span>
+
+	public Order(Long order_id, Double total) {
+		// TODO Auto-generated constructor stub
+
+<span class="fc" id="L62">		super();</span>
+<span class="fc" id="L63">		this.order_id = order_id;</span>
+<span class="fc" id="L64">		this.total = total;</span>
+
+<span class="fc" id="L66">	}</span>
+
+	public Order(Long order_id, Long customer_id, Long quantity, Double total) {
+<span class="fc" id="L69">		super();</span>
+<span class="fc" id="L70">		this.order_id = order_id;</span>
+<span class="fc" id="L71">		this.customer_id = customer_id;</span>
+<span class="fc" id="L72">		this.quantity = quantity;</span>
+<span class="fc" id="L73">		this.total = total;</span>
+<span class="fc" id="L74">	}</span>
+
+	public Order(Long customer_id, Long quantity, Double total) {
+<span class="fc" id="L77">		super();</span>
+<span class="fc" id="L78">		this.customer_id = customer_id;</span>
+<span class="fc" id="L79">		this.quantity = quantity;</span>
+<span class="fc" id="L80">		this.total = total;</span>
+<span class="fc" id="L81">	}</span>
+
+	public Order(Long customer_id, Long quantity) {
+		// TODO Auto-generated constructor stub
+
+<span class="nc" id="L86">		super();</span>
+<span class="nc" id="L87">		this.customer_id = customer_id;</span>
+<span class="nc" id="L88">		this.quantity = quantity;</span>
+<span class="nc" id="L89">	}</span>
+
+	public String toString() {
+<span class="fc" id="L92">		return &quot;Order ID: &quot; + order_id + &quot; Customer ID: &quot; + customer_id + &quot; Quantity: &quot; + quantity + &quot; Total: &quot; + total;</span>
+
+	}
+
+	@Override
+	public int hashCode() {
+<span class="fc" id="L98">		final int prime = 31;</span>
+<span class="fc" id="L99">		int result = 1;</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">		result = prime * result + ((order_id == null) ? 0 : order_id.hashCode());</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">		result = prime * result + ((product_id == null) ? 0 : product_id.hashCode());</span>
+<span class="pc bpc" id="L102" title="1 of 2 branches missed.">		result = prime * result + ((customer_id == null) ? 0 : customer_id.hashCode());</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">		result = prime * result + ((total == null) ? 0 : total.hashCode());</span>
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());</span>
+<span class="fc" id="L105">		return result;</span>
+
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+<span class="fc bfc" id="L111" title="All 2 branches covered.">		if (this == obj)</span>
+<span class="fc" id="L112">			return true;</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">		if (obj == null)</span>
+<span class="fc" id="L114">			return false;</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">		if (getClass() != obj.getClass())</span>
+<span class="fc" id="L116">			return false;</span>
+<span class="fc" id="L117">		Order other = (Order) obj;</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">		if (order_id == null) {</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">			if (other.order_id != null)</span>
+<span class="fc" id="L120">				return false;</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">		} else if (!order_id.equals(other.order_id))</span>
+<span class="fc" id="L122">			return false;</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">		if (product_id == null) {</span>
+<span class="pc bpc" id="L124" title="1 of 2 branches missed.">			if (other.product_id != null)</span>
+<span class="nc" id="L125">				return false;</span>
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">		} else if (!product_id.equals(other.product_id))</span>
+<span class="nc" id="L127">			return false;</span>
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">		if (customer_id == null) {</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">			if (other.customer_id != null)</span>
+<span class="nc" id="L130">				return false;</span>
+<span class="pc bpc" id="L131" title="1 of 2 branches missed.">		} else if (!customer_id.equals(other.customer_id))</span>
+<span class="nc" id="L132">			return false;</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">		if (total == null) {</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">			if (other.total != null)</span>
+<span class="fc" id="L135">				return false;</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">		} else if (!total.equals(other.total))</span>
+<span class="fc" id="L137">			return false;</span>
+<span class="fc" id="L138">		return true;</span>
+	}
+
+	public Long getQuantity() {
+<span class="fc" id="L142">		return quantity;</span>
+	}
+
+	public void setQuantity(Long quantity) {
+<span class="fc" id="L146">		this.quantity = quantity;</span>
+<span class="fc" id="L147">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
